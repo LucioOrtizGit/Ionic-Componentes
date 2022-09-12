@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 interface Componente {
   icon: string;
@@ -23,13 +25,36 @@ export class InicioPage implements OnInit {
       icon:'logo-apple-appstore',
       name:'Alert',
       redirect:'/alert'
-    }
+    },
+    // {
+    //   icon:'phone-portrait-outline',
+    //   name:'Modal',
+    //   redirect:'/modal'
+    // }
 
   ]
 
-  constructor() { }
+  constructor(private modalCtrl:ModalController) { }
 
   ngOnInit() {
+  }
+
+  async mostrarModal(){
+    
+    const modal = await this.modalCtrl.create({
+      component: ModalPage,
+      componentProps: {
+        login: 'Logeado',
+        condiciones: 'Aceptadas'
+      }
+    });
+  
+    await modal.present();
+  
+    const data = await modal.onWillDismiss();
+  
+    console.log(data);
+  
   }
 
 }
