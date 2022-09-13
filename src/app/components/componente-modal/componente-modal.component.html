@@ -12,11 +12,11 @@
 
 
 
-<ion-button *ngIf="saltar">
+<ion-button *ngIf="saltar" (click)="volver()">
   Saltar
 </ion-button>
 
-<ion-button>
+<ion-button (click)="volver()">
   Aceptar
 </ion-button>
 

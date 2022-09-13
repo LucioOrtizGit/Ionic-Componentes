@@ -12,19 +12,23 @@ export class ComponenteModalComponent implements OnInit {
   // @Input() login:string = 'User 01';
   // @Input() condiciones:string = 'Aceptadas';
 
-  @Input() saltar:boolean = true;
+  @Input() saltar: boolean = true;
 
 
 
-  constructor(private modalCtrl:ModalController) { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    
-    
-   }
+
+
+  }
+
+  volver() {
+    this.modalCtrl.dismiss();
+  }
 
   // salirSinArgumentos() {
-    
+
   //   this.modalCtrl.dismiss();
   // }
 
